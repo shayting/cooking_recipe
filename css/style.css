@@ -1,0 +1,174 @@
+/* todo 加入Google font Roboto分別載入字重100,400,700 */
+
+
+/*------ note general ------*/
+
+body {
+    background-color: #1E3C4B;
+    min-height: 1000px;
+    background-image: url(../img/wood.jpg)
+}
+
+.card-wrapper {}
+
+.card {
+    width: 600px;
+    margin: 100px auto;
+}
+
+.card > .upper-section,
+.card > lower-section {
+    padding: 20px 20px;
+    position: relative;
+}
+
+
+/*------- note font ------*/
+
+* {
+    color: #333;
+}
+
+.dish-name {
+    font-size: 50px;
+    letter-spacing: 8px;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.section-tittle {
+    font-size: 24px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    margin: 0px 5px;
+}
+
+
+/*------ note upper-section ------*/
+
+.upper-section {
+    background-color: white;
+    height: 220px;
+    z-index: 5;
+    color: white;
+    background-image: url('../img/salmon%20steak.jpg');
+    background-size: cover;
+    transform: rotateX(25deg);
+    transform-origin: bottom;
+    filter: grayscale(5%) brightness(1.1)
+        /* todo 設定filter屬性控制照片明亮與飽和度 */
+}
+
+.upper-section .text {
+    margin-top: 80px;
+}
+
+.upper-section * {
+    color: white;
+}
+
+.upper-section p {
+    margin: 0;
+}
+
+.price {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.price:before {
+    content: " $";
+}
+
+.price:after {
+    content: " NTD";
+}
+
+
+/*------ note lower-section ------*/
+
+.lower-section {
+    background-color: white;
+    z-index: 1;
+    transform: rotateX(-100deg);
+    /* transform 旋轉 */
+    transform-origin: top;
+    /* transform-origin 軸心 */
+    padding: 10px 10px;
+
+
+}
+
+.ingredients {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.ingredients > li {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    padding-left: 50px;
+    border-bottom: 1px dashed #dbdbdb;
+    position: relative;
+}
+
+.ingredients > li.done {
+    text-decoration: line-through;
+}
+
+/* 利用偽元素設計checklist點擊圖樣 */
+.ingredients > li:before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    left: 5px;
+    /* position absolute 垂直置中 */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.ingredients > li.done:before {
+    background-image: url('../img/checkmark-solid.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+/*------ note animation ------*/
+
+.card:hover > .upper-section {
+    transform: rotateX(0deg);
+}
+
+.card:hover > .lower-section {
+    transform: rotateX(0deg);
+    /* 當滑鼠點到card,裡面的lower-section回歸到0deg */
+}
+
+.upper-section,
+.lower-section {
+    transition: all .5s ease;
+    /* 所有元素在0.5秒內 使用ease 跑完*/
+}
+
+.card-wrapper {
+    perspective: 1000px;
+    /* perspective 透視 使用者與螢幕的距離通常抓1000px */
+}
+
+
+
+
+/* todo 設計.card:hover動畫 */
+
+
+/* todo 設計.card:hover的3D動畫 */
